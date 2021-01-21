@@ -1,0 +1,25 @@
+BALANCE BINARY TREE
+
+class Solution {
+    boolean result = true;
+    public boolean isBalanced(TreeNode root) {
+      bin(root);
+      return result;
+    }
+  
+    private int bin(TreeNode root){
+      
+      if(root == null)
+        return 0;
+      
+      int left = bin(root.left);
+      int right = bin(root.right);
+      
+      if(Math.abs(left - right) > 1)
+      {
+       result = false; 
+      }
+      return 1 + Math.max(left, right);
+     }
+}
+      
